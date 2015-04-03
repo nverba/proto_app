@@ -5,9 +5,11 @@
 
   function apiServiceFn($http, $q) {
 
+    // Use Angular $q for Hyperagent promises
+
     Hyperagent.configure('defer', $q.defer);
 
-    // Wrap an adapter Fn that allows Hyperagent to use $http
+    // Wrap $http in an adapter Fn for Hyperagent compatability
     // making service mockable/testable
 
     Hyperagent.configure('ajax', function(options) {
@@ -15,8 +17,6 @@
         return options.success(JSON.stringify(resp.data)); // restringify data - Fork Hyperdata to handle this natively
       })["catch"](options.error);
     });
-
-    // Use Angular $q for Hyperagent promises
 
     var api = new Hyperagent.Resource('/api/');
 
