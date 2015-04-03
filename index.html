@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Carpet Lane test</title>
+
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+
+  <style type="text/css">
+
+    body {
+      padding-top: 50px;
+      background-color: #222325;
+    }
+    .viewport {
+      padding: 40px 15px;
+      text-align: center;
+    }
+
+    .navbar-inverse .navbar-btn {
+      background-color: #222222;
+      border-color: #333333;
+      color: #999999;
+    }
+    .navbar-inverse .navbar-btn:hover {
+      color: #ffffff;
+      background-color: #333333;
+    }
+
+    #table-grid {
+      margin: 0;
+      padding: 0;
+      display: inline;
+      list-style: none;
+      font-weight: bold;
+      font-size: 19px;
+    }
+
+    #table-grid li {
+      width: 20%;
+      padding-bottom: 20%;
+      display: inline-block;
+      background-color: #5cb85c;
+      position: relative;
+      margin: 2%;
+      border-radius: 5px;
+    }
+
+    #table-grid li a {
+      width: 100%;
+      display: block;
+      position: absolute;
+      height: 100%;
+      color: #333;
+    }
+
+    #table-grid li a span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+  </style>
+
+</head>
+<body ng-app="app" ng-controller="MainController as main">
+
+  <nav class="navbar navbar-inverse navbar-fixed-top ">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="btn btn-default navbar-btn">Home</button>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div ng-viewport class="viewport"></div>
+  </div>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+  <script src="bower_components/angular-new-router/dist/router.es5.js"></script>
+
+  <script src="src/mock-backend.js"></script> <!-- remove in production -->
+
+  <script src="src/app.js"></script>
+  <script src="src/api-service.js"></script>
+  <script src="src/main-controller.js"></script>
+
+  <script src="components/tables/tables.js"></script>
+  <script src="components/table/table.js"></script>
+
+</body>
+</html>
