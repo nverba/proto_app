@@ -8,7 +8,7 @@
   function mockBackendFn($httpBackend) {
 
     $httpBackend.when('GET', '/api/')
-      .respond(HAL_JSON.root);
+      .respond(JSON.stringify(HAL_JSON.root));
 
     $httpBackend.whenGET(/components/).passThrough();
 
