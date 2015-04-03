@@ -7,7 +7,7 @@
 
     Hyperagent.configure('defer', $q.defer);
 
-    // Return an adapter Fn that allows Hyperagent to use $http
+    // Wrap an adapter Fn that allows Hyperagent to use $http
     // making service mockable/testable
 
     Hyperagent.configure('ajax', function(options) {
@@ -20,15 +20,14 @@
 
     var api = new Hyperagent.Resource('/api/');
 
-    api.fetch().then(function (root) {
-      console.log('API root resolved:', root);
+    // return the api resource
+
+    return api.fetch().then(function (root) {
+      return root;
     }, function (err) {
       console.warn('Error fetching API root', err);
     });
 
-    return {
-      root: {}
-    };
     
   }
 
