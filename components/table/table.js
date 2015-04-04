@@ -7,6 +7,7 @@
 
       var allocateTable = angular.bind(this, function (root) {
         this.table = root.embedded.tables[$routeParams.id -1];
+        this.id = this.table.props.id;
         this.orders = this.table.embedded.orders;
       });
 

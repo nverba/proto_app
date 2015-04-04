@@ -14,9 +14,7 @@
       });
 
       var allocateOrder = angular.bind(this, function (root) {
-        // this.menu = root.embedded.products.embedded.categories.map(function (product) {
-        //   return angular.extend(product.props, { orders: table.embedded.orders });
-        // });
+        this.order = $routeParams.order ? root.embedded.tables[$routeParams.table -1][$routeParams.order] : [];
       });
 
       function fetchProducts(root) {
