@@ -7,10 +7,10 @@
 
   function mockBackendFn($httpBackend) {
 
-    $httpBackend.when('GET', '/api/')
+    $httpBackend.when('GET', '/api')
       .respond(JSON.stringify(HAL_JSON.root));
 
-    $httpBackend.when('GET', '/api/products/')
+    $httpBackend.when('GET', '/api/products')
       .respond(JSON.stringify(HAL_JSON.products));
 
     // resolve template requests normally.
@@ -40,15 +40,10 @@
 
     "_links": {
       "self": { "href": "/api/" },
-      "products": { "href": "/api/products/" }
+      "products": { "href": "products" }
     },
     "_embedded": {
-      "tables": [],
-      "menu": {
-        "_links": {
-          "self": { "href": "api/menu" }
-        }
-      }
+      "tables": []
     }
   };
 
@@ -64,92 +59,90 @@
       "categories": [
         {
           "_links": {
-            "self": { "href": "/api/products/categories/starters" },
-            "name": "Starters",
-            "_embedded": [
-              {
-                "_links": {
-                  "self": { "href": "/api/products/categories/starters/pate" }
-                },
-                "name": "Pate",
-                "current_price": 3.2
+            "self": { "href": "/api/products/categories/starters" }
+          },
+          "name": "Starters",
+          "_embedded": [
+            {
+              "_links": {
+                "self": { "href": "/api/products/categories/starters/pate" }
               },
-              {
-                "_links": {
-                  "self": { "href": "/api/products/categories/starters/greek_salad" }
-                },
-                "name": "Greek salad",
-                "current_price": 2.7
+              "name": "Pate",
+              "current_price": 3.2
+            },
+            {
+              "_links": {
+                "self": { "href": "/api/products/categories/starters/greek_salad" }
               },
-              {
-                "_links": {
-                  "self": { "href": "/api/products/categories/starters/fish_sticks" }
-                },
-                "name": "Fish sticks",
-                "current_price": 3
-              }
-            ]
-          }  
+              "name": "Greek salad",
+              "current_price": 2.7
+            },
+            {
+              "_links": {
+                "self": { "href": "/api/products/categories/starters/fish_sticks" }
+              },
+              "name": "Fish sticks",
+              "current_price": 3
+            }
+          ]
         },
         {
           "_links": {
-            "self": { "href": "/api/products/categories/mains" },
-            "name": "Mains",
-            "_embedded": [
-              {
-                "_links": {
-                  "self": { "href": "/api/products/categories/mains/classic_burger" }
-                },
-                "name": "Classic burger",
-                "current_price": 3.2
+            "self": { "href": "/api/products/categories/mains" }
+          },
+          "name": "Mains",
+          "_embedded": [
+            {
+              "_links": {
+                "self": { "href": "/api/products/categories/mains/classic_burger" }
               },
-              {
-                "_links": {
-                  "self": { "href": "/api/products/categories/mains/steak" }
-                },
-                "name": "steak",
-                "current_price": 2.7
+              "name": "Classic burger",
+              "current_price": 3.2
+            },
+            {
+              "_links": {
+                "self": { "href": "/api/products/categories/mains/steak" }
               },
-              {
-                "_links": {
-                  "self": { "href": "/api/products/categories/mains/mackrel" }
-                },
-                "name": "Mackrel",
-                "current_price": 3
-              }
-            ]
-            
-          }  
+              "name": "steak",
+              "current_price": 2.7
+            },
+            {
+              "_links": {
+                "self": { "href": "/api/products/categories/mains/mackrel" }
+              },
+              "name": "Mackrel",
+              "current_price": 3
+            }
+          ]
         },
         {
           "_links": {
-            "self": { "href": "/api/products/categories/deserts" },
-            "name": "Deserts",
-            "_embedded": [
-              {
-                "_links": {
-                  "self": { "href": "/api/products/categories/deserts/posset" }
-                },
-                "name": "Posset",
-                "current_price": 3.2
+            "self": { "href": "/api/products/categories/deserts" }            
+          },
+          "name": "Deserts",
+          "_embedded": [
+            {
+              "_links": {
+                "self": { "href": "/api/products/categories/deserts/posset" }
               },
-              {
-                "_links": {
-                  "self": { "href": "/api/products/categories/deserts/cheesecake" }
-                },
-                "name": "Cheesecake",
-                "current_price": 2.7
+              "name": "Posset",
+              "current_price": 3.2
+            },
+            {
+              "_links": {
+                "self": { "href": "/api/products/categories/deserts/cheesecake" }
               },
-              {
-                "_links": {
-                  "self": { "href": "/api/products/categories/deserts/chocolate_cake" }
-                },
-                "name": "Chocolate cake",
-                "current_price": 3
-              }
-            ]
-            
-          }  
+              "name": "Cheesecake",
+              "current_price": 2.7
+            },
+            {
+              "_links": {
+                "self": { "href": "/api/products/categories/deserts/chocolate_cake" }
+              },
+              "name": "Chocolate cake",
+              "current_price": 3
+            }
+          ]
         }
       ]
     }
