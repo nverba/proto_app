@@ -68,6 +68,7 @@
                 "_links": {
                   "self": { "href": "/api/products/categories/starters/pate" }
                 },
+                "id": "111",
                 "name": "Pate",
                 "current_price": 3.2
               },
@@ -75,6 +76,7 @@
                 "_links": {
                   "self": { "href": "/api/products/categories/starters/greek_salad" }
                 },
+                "id": "112",
                 "name": "Greek salad",
                 "current_price": 2.7
               },
@@ -82,6 +84,7 @@
                 "_links": {
                   "self": { "href": "/api/products/categories/starters/fish_sticks" }
                 },
+                "id": "113",
                 "name": "Fish sticks",
                 "current_price": 3
               }
@@ -99,6 +102,7 @@
               "_links": {
                 "self": { "href": "/api/products/categories/mains/classic_burger" }
               },
+              "id": "121",
               "name": "Classic burger",
               "current_price": 3.2
             },
@@ -106,6 +110,7 @@
               "_links": {
                 "self": { "href": "/api/products/categories/mains/steak" }
               },
+              "id": "122",
               "name": "steak",
               "current_price": 2.7
             },
@@ -113,6 +118,7 @@
               "_links": {
                 "self": { "href": "/api/products/categories/mains/mackrel" }
               },
+              "id": "123",
               "name": "Mackrel",
               "current_price": 3
             }
@@ -130,6 +136,7 @@
                 "_links": {
                   "self": { "href": "/api/products/categories/deserts/posset" }
                 },
+                "id": "131",
                 "name": "Posset",
                 "current_price": 3.2
               },
@@ -137,6 +144,7 @@
                 "_links": {
                   "self": { "href": "/api/products/categories/deserts/cheesecake" }
                 },
+                "id": "132",
                 "name": "Cheesecake",
                 "current_price": 2.7
               },
@@ -144,6 +152,7 @@
                 "_links": {
                   "self": { "href": "/api/products/categories/deserts/chocolate_cake" }
                 },
+                "id": "133",
                 "name": "Chocolate cake",
                 "current_price": 3
               }
