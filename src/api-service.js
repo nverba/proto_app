@@ -18,7 +18,7 @@
       })["catch"](options.error);
     });
 
-    var api = new Hyperagent.Resource('/api/');
+    var api = new Hyperagent.Resource('/api');
 
     // return the api resource
 
