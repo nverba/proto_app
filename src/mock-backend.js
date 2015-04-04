@@ -65,21 +65,89 @@
         {
           "_links": {
             "self": { "href": "/api/products/categories/starters" },
-            "name": "Starters"
-            
+            "name": "Starters",
+            "_embedded": [
+              {
+                "_links": {
+                  "self": { "href": "/api/products/categories/starters/pate" }
+                },
+                "name": "Pate",
+                "current_price": 3.2
+              },
+              {
+                "_links": {
+                  "self": { "href": "/api/products/categories/starters/greek_salad" }
+                },
+                "name": "Greek salad",
+                "current_price": 2.7
+              },
+              {
+                "_links": {
+                  "self": { "href": "/api/products/categories/starters/fish_sticks" }
+                },
+                "name": "Fish sticks",
+                "current_price": 3
+              }
+            ]
           }  
         },
         {
           "_links": {
             "self": { "href": "/api/products/categories/mains" },
-            "name": "Mains"
+            "name": "Mains",
+            "_embedded": [
+              {
+                "_links": {
+                  "self": { "href": "/api/products/categories/mains/classic_burger" }
+                },
+                "name": "Classic burger",
+                "current_price": 3.2
+              },
+              {
+                "_links": {
+                  "self": { "href": "/api/products/categories/mains/steak" }
+                },
+                "name": "steak",
+                "current_price": 2.7
+              },
+              {
+                "_links": {
+                  "self": { "href": "/api/products/categories/mains/mackrel" }
+                },
+                "name": "Mackrel",
+                "current_price": 3
+              }
+            ]
             
           }  
         },
         {
           "_links": {
             "self": { "href": "/api/products/categories/deserts" },
-            "name": "Deserts"
+            "name": "Deserts",
+            "_embedded": [
+              {
+                "_links": {
+                  "self": { "href": "/api/products/categories/deserts/posset" }
+                },
+                "name": "Posset",
+                "current_price": 3.2
+              },
+              {
+                "_links": {
+                  "self": { "href": "/api/products/categories/deserts/cheesecake" }
+                },
+                "name": "Cheesecake",
+                "current_price": 2.7
+              },
+              {
+                "_links": {
+                  "self": { "href": "/api/products/categories/deserts/chocolate_cake" }
+                },
+                "name": "Chocolate cake",
+                "current_price": 3
+              }
+            ]
             
           }  
         }
