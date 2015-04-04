@@ -1,12 +1,29 @@
-<ul>
-  <li ng-repeat="category in order.products">
-    <a href="#" ng-bind="category.name"></a>
-
-    <ul>
-      <li ng-repeat="product in category.products">
-        <a href="#" ng-bind="product.name"></a>
-      </li>
-    </ul>
-
-  </li>
-</ul>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="category in order.products">
+  <div class="panel panel-default" >
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <button class="btn btn-default btn-block collapsed" type="button" data-toggle="collapse" data-target="#{{ category.name }}" aria-expanded="false" aria-controls="collapseExample" ng-bind="category.name">
+        </button>
+      </h4>
+    </div>
+    <div id="{{ category.name }}" class="panel-collapse collapse products" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <ul class="list-group">
+          <li class="list-group-item clearfix" ng-repeat="product in category.products">
+            <span class="badge pull-left">14</span>
+            <span ng-bind="product.name" class="products-text"></span>
+            <div class="btn-group pull-right" role="group">
+              <button class="btn btn-default btn-xs">
+                <span class="glyphicon glyphicon-minus"> </span>
+              </button>
+              <button class="btn btn-default btn-xs">
+                <span class="glyphicon glyphicon-plus"> </span>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+ 

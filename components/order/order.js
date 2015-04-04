@@ -26,5 +26,10 @@
 
       ApiService.then(fetchProducts).then(allocateOrder);
 
+      $('.accordion-toggle button').click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+      });
+
     }
 })();
