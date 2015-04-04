@@ -7,7 +7,7 @@
 
       var allocateTables = angular.bind(this, function (root) {
         this.tables = root.embedded.tables.map(function (table) {
-          return table.props;
+          return angular.extend(table.props, { orders: table.embedded.orders });
         });
       });
 
