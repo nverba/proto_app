@@ -5,13 +5,10 @@
 
   function MainControllerFn($router, ApiService) {
 
-    
-
     $router.config([
       { path: '/', component: 'tables' },
       { path: 'table/:id', component: 'table' },
-      { path: '/menu/',    component: 'menu' },
-      { path: '/product/', component: 'product' }
+      { path: '/products/', component: 'products' }
     ]);
   }
 
