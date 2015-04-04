@@ -62,36 +62,39 @@
             "self": { "href": "/api/products/categories/starters" }
           },
           "name": "Starters",
-          "_embedded": [
-            {
-              "_links": {
-                "self": { "href": "/api/products/categories/starters/pate" }
+          "_embedded": {
+            "products": [
+              {
+                "_links": {
+                  "self": { "href": "/api/products/categories/starters/pate" }
+                },
+                "name": "Pate",
+                "current_price": 3.2
               },
-              "name": "Pate",
-              "current_price": 3.2
-            },
-            {
-              "_links": {
-                "self": { "href": "/api/products/categories/starters/greek_salad" }
+              {
+                "_links": {
+                  "self": { "href": "/api/products/categories/starters/greek_salad" }
+                },
+                "name": "Greek salad",
+                "current_price": 2.7
               },
-              "name": "Greek salad",
-              "current_price": 2.7
-            },
-            {
-              "_links": {
-                "self": { "href": "/api/products/categories/starters/fish_sticks" }
-              },
-              "name": "Fish sticks",
-              "current_price": 3
-            }
-          ]
+              {
+                "_links": {
+                  "self": { "href": "/api/products/categories/starters/fish_sticks" }
+                },
+                "name": "Fish sticks",
+                "current_price": 3
+              }
+            ]
+          }
         },
         {
           "_links": {
             "self": { "href": "/api/products/categories/mains" }
           },
           "name": "Mains",
-          "_embedded": [
+          "_embedded": {
+            "products": [
             {
               "_links": {
                 "self": { "href": "/api/products/categories/mains/classic_burger" }
@@ -114,35 +117,38 @@
               "current_price": 3
             }
           ]
+          }
         },
         {
           "_links": {
             "self": { "href": "/api/products/categories/deserts" }            
           },
           "name": "Deserts",
-          "_embedded": [
-            {
-              "_links": {
-                "self": { "href": "/api/products/categories/deserts/posset" }
+          "_embedded": {
+            "products": [
+              {
+                "_links": {
+                  "self": { "href": "/api/products/categories/deserts/posset" }
+                },
+                "name": "Posset",
+                "current_price": 3.2
               },
-              "name": "Posset",
-              "current_price": 3.2
-            },
-            {
-              "_links": {
-                "self": { "href": "/api/products/categories/deserts/cheesecake" }
+              {
+                "_links": {
+                  "self": { "href": "/api/products/categories/deserts/cheesecake" }
+                },
+                "name": "Cheesecake",
+                "current_price": 2.7
               },
-              "name": "Cheesecake",
-              "current_price": 2.7
-            },
-            {
-              "_links": {
-                "self": { "href": "/api/products/categories/deserts/chocolate_cake" }
-              },
-              "name": "Chocolate cake",
-              "current_price": 3
-            }
-          ]
+              {
+                "_links": {
+                  "self": { "href": "/api/products/categories/deserts/chocolate_cake" }
+                },
+                "name": "Chocolate cake",
+                "current_price": 3
+              }
+            ]
+          }
         }
       ]
     }
