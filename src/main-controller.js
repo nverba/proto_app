@@ -8,7 +8,7 @@
     $router.config([
       { path: '/', component: 'tables' },
       { path: 'table/:id', component: 'table' },
-      { path: '/products/', component: 'products' }
+      { path: '/order/:id', component: 'order' }
     ]);
   }
 

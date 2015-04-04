@@ -1,0 +1,12 @@
+<ul>
+  <li ng-repeat="category in order.products">
+    <a href="#" ng-bind="category.name"></a>
+
+    <ul>
+      <li ng-repeat="product in category.products">
+        <a href="#" ng-bind="product.name"></a>
+      </li>
+    </ul>
+
+  </li>
+</ul>
