@@ -1,17 +1,7 @@
 (function () { 'use strict';
 
-  var HAL_JSON = {
-    orders: {
-      "_links": {
-        "self": { "href": "/api/orders" }
-      },
-      "_embedded": {
-        "orders": [
-
-        ]
-      }
-    } 
-  };
+  // specify number of tables to generate when calling newHALJSON()
+  var HAL_JSON = localStorage.getItem('HAL_JSON') ? JSON.parse(localStorage.getItem('HAL_JSON')) :  newHALJSON(34);
 
   angular.module('MockBackend', ['ngMockE2E'])
     .run(['$httpBackend', mockBackendFn]);
@@ -58,6 +48,8 @@
       // Insert full order + embedded resources in orders
       HAL_JSON.orders._embedded.orders.push(order);
 
+      localStorage.setItem('HAL_JSON', JSON.stringify(HAL_JSON));
+
       return [200];
     });
 
@@ -67,129 +59,149 @@
 
   }
 
-  function generateTables(hal, tables) {
+  function newHALJSON(number_of_tables) {
 
-    for (var i=1; i <= tables; i++) {
+    var HALJSON = {};
 
-      hal._embedded.tables.push({
-        "_links": {
-          "self": { "href": "api/tables/" + i }
-        },
-        "id": i,
-        "reserved": [],
-        "_embedded": {
-          "orders": []
-        }
-      });
+    HALJSON.root = {
+
+      "_links": {
+        "self": { "href": "/api/" },
+        "products": { "href": "products" }
+      },
+      "_embedded": {
+        "tables": []
+      }
+    };
+      
+    HALJSON.orders = {
+
+      "_links": {
+        "self": { "href": "/api/orders" }
+      },
+      "_embedded": {
+        "orders": [
+
+        ]
+      }
+    };
+
+    HALJSON.products = {
+
+      "_links": {
+        "self": { "href": "/api/products/" }
+      },
+      "_embedded": {
+        "products": [
+          {
+            "_links": {
+              "self": { "href": "/api/products/111" }
+            },
+            "name": "Pate",
+            "id": "111",
+            "category": "Starters",
+            "current_price": 3.2
+          },
+          {
+            "_links": {
+              "self": { "href": "/api/products/112" }
+            },
+            "name": "Greek salad",
+            "id": "112",
+            "category": "Starters",
+            "current_price": 2.7
+          },
+          {
+            "_links": {
+              "self": { "href": "/api/products/113" }
+            },
+            "name": "Fish sticks",
+            "id": "113",
+            "category": "Starters",
+            "current_price": 3
+          },
+          {
+            "_links": {
+              "self": { "href": "/api/products/121" }
+            },
+            "name": "Classic burger",
+            "id": "121",
+            "category": "Mains",
+            "current_price": 3.2
+          },
+          {
+            "_links": {
+              "self": { "href": "/api/products/122" }
+            },
+            "name": "steak",
+            "id": "122",
+            "category": "Mains",
+            "current_price": 2.7
+          },
+          {
+            "_links": {
+              "self": { "href": "/api/products/123" }
+            },
+            "name": "Mackrel",
+            "id": "123",
+            "category": "Mains",
+            "current_price": 3
+          },
+          {
+            "_links": {
+              "self": { "href": "/api/products/131" }
+            },
+            "name": "Posset",
+            "id": "131",
+            "category": "Deserts",
+            "current_price": 3.2
+          },
+          {
+            "_links": {
+              "self": { "href": "/api/products/132" }
+            },
+            "name": "Cheesecake",
+            "id": "132",
+            "category": "Deserts",
+            "current_price": 2.7
+          },
+          {
+            "_links": {
+              "self": { "href": "/api/products/133" }
+            },
+            "name": "Chocolate cake",
+            "id": "133",
+            "category": "Deserts",
+            "current_price": 3
+          }
+        ]
+      }
+    };
+
+    function generateTables(hal, tables) {
+
+      for (var i=1; i <= tables; i++) {
+
+        hal._embedded.tables.push({
+          "_links": {
+            "self": { "href": "api/tables/" + i }
+          },
+          "id": i,
+          "reserved": [],
+          "_embedded": {
+            "orders": []
+          }
+        });
+      }
     }
+
+    // push any number of tables to root
+    generateTables(HALJSON.root, number_of_tables);
+
+    // return the generated HAL JSON object
+    return HALJSON;
+
   }
-
-  HAL_JSON.root = {
-
-    "_links": {
-      "self": { "href": "/api/" },
-      "products": { "href": "products" }
-    },
-    "_embedded": {
-      "tables": []
-    }
-  };
-
-  // push any number of tables to root
-  generateTables(HAL_JSON.root, 34);
-
-  HAL_JSON.products = {
-
-    "_links": {
-      "self": { "href": "/api/products/" }
-    },
-    "_embedded": {
-      "products": [
-        {
-          "_links": {
-            "self": { "href": "/api/products/111" }
-          },
-          "name": "Pate",
-          "id": "111",
-          "category": "Starters",
-          "current_price": 3.2
-        },
-        {
-          "_links": {
-            "self": { "href": "/api/products/112" }
-          },
-          "name": "Greek salad",
-          "id": "112",
-          "category": "Starters",
-          "current_price": 2.7
-        },
-        {
-          "_links": {
-            "self": { "href": "/api/products/113" }
-          },
-          "name": "Fish sticks",
-          "id": "113",
-          "category": "Starters",
-          "current_price": 3
-        },
-        {
-          "_links": {
-            "self": { "href": "/api/products/121" }
-          },
-          "name": "Classic burger",
-          "id": "121",
-          "category": "Mains",
-          "current_price": 3.2
-        },
-        {
-          "_links": {
-            "self": { "href": "/api/products/122" }
-          },
-          "name": "steak",
-          "id": "122",
-          "category": "Mains",
-          "current_price": 2.7
-        },
-        {
-          "_links": {
-            "self": { "href": "/api/products/123" }
-          },
-          "name": "Mackrel",
-          "id": "123",
-          "category": "Mains",
-          "current_price": 3
-        },
-        {
-          "_links": {
-            "self": { "href": "/api/products/131" }
-          },
-          "name": "Posset",
-          "id": "131",
-          "category": "Deserts",
-          "current_price": 3.2
-        },
-        {
-          "_links": {
-            "self": { "href": "/api/products/132" }
-          },
-          "name": "Cheesecake",
-          "id": "132",
-          "category": "Deserts",
-          "current_price": 2.7
-        },
-        {
-          "_links": {
-            "self": { "href": "/api/products/133" }
-          },
-          "name": "Chocolate cake",
-          "id": "133",
-          "category": "Deserts",
-          "current_price": 3
-        }
-      ]
-    }
-  };
-
 })();
 
 
