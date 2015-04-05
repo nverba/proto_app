@@ -24,11 +24,15 @@
 
     // return the api resource
 
-    return api.fetch().then(function (root) {
+    var ready = api.fetch().then(function (root) {
       return root;
     }, function (err) {
       console.warn('Error fetching API root', err);
     });
+
+    return {
+      ready: ready
+    };
 
     
   }

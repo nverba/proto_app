@@ -34,6 +34,10 @@
         decrementProduct(item_id);
       };
 
+      this.updateOrder = function updateOrder() {
+        // body...
+      };
+
       function fetchProducts(root) {
         root.links.products.fetch().then(allocateProducts);
         return root;
@@ -47,7 +51,7 @@
         this.product_count[product_id] = this.product_count[product_id] ? this.product_count[product_id] - 1 : 0;
       });
 
-      ApiService.then(fetchProducts).then(allocateOrder);
+      ApiService.ready.then(fetchProducts).then(allocateOrder);
 
     }
 })();

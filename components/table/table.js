@@ -11,7 +11,7 @@
         this.orders = this.table.embedded.orders;
       });
 
-      ApiService.then(allocateTable);
+      ApiService.ready.then(allocateTable);
       
     }
 
