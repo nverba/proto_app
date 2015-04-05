@@ -10,14 +10,14 @@
       <div class="panel-body">
         <ul class="list-group">
           <li class="list-group-item clearfix" ng-repeat="product in category.products">
-            <span class="badge pull-left">14</span>
-            <span ng-bind="product.name" class="products-text"></span>
+            <span ng-bind="product.name" class="products-text pull-left"></span>
+            <span class="badge pull-left" ng-bind="order.product_count[ product.id ]"></span>
             <div class="btn-group pull-right" role="group">
-              <button class="btn btn-default btn-xs">
-                <span class="glyphicon glyphicon-minus"> </span>
+              <button class="btn btn-default btn-xs" ng-click="order.removeItem(product.id)">
+                <span class="glyphicon glyphicon-minus"></span>
               </button>
-              <button class="btn btn-default btn-xs">
-                <span class="glyphicon glyphicon-plus"> </span>
+              <button class="btn btn-default btn-xs" ng-click="order.addItem(product.id)">
+                <span class="glyphicon glyphicon-plus"></span>
               </button>
             </div>
           </li>
@@ -26,4 +26,3 @@
     </div>
   </div>
 </div>
- 
