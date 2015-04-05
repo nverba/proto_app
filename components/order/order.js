@@ -19,10 +19,16 @@
       });
 
       var allocateOrder = angular.bind(this, function (root) {
-        this.order = $routeParams.order === 'new' ? root.embedded.tables[$routeParams.table -1][$routeParams.order] : [];
-        angular.forEach(this.order, function (product) {
-          incrementProduct(product.id);
-        });
+
+        if ($routeParams.order === 'undefined') {
+          this.order = [];
+        } else {
+          //this.order = ApiService.fetchOrder($routeParams.order);
+        }
+
+        // angular.forEach(this.order, function (product) {
+        //   incrementProduct(product.id);
+        // });
       });
 
       this.addItem = function addItem(product) {

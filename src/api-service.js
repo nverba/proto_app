@@ -37,7 +37,7 @@
 
     var submitOrder = function (order, table_id, order_id) {
       if (order_id === "undefined") {
-        $http.post('/api/orders', { table: table_id, order: order })
+        $http.post('/api/orders/', { table: table_id, order: order })
           .success(function() {
             $router.navigate('/');
           });
@@ -46,9 +46,21 @@
       }
     };
 
+    function fetchOrder(id) {
+      return load().then(function (root) {
+
+          console.log(root.links);
+
+        return root.links.orders.fetch().then(function (orders) {
+          console.log(orders);
+        });
+      });
+    }
+
     return {
       load: load,
-      submitOrder: submitOrder
+      submitOrder: submitOrder,
+      fetchOrder: fetchOrder
     };
 
     

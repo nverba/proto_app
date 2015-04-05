@@ -13,10 +13,10 @@
         return [200, JSON.stringify(HAL_JSON.root)];
       });
 
-    $httpBackend.when('GET', '/api/products')
+    $httpBackend.when('GET', '/api/products/')
       .respond(JSON.stringify(HAL_JSON.products));
 
-    $httpBackend.whenPOST('/api/orders').respond(function(method, url, json_data) {
+    $httpBackend.whenPOST('/api/orders/').respond(function(method, url, json_data) {
       
       var data = JSON.parse(json_data);
       var stamp = new Date().getTime();  // lets use this for time & pseudo ID for dev
@@ -66,7 +66,8 @@
 
       "_links": {
         "self": { "href": "/api/" },
-        "products": { "href": "products" }
+        "products": { "href": "products/" },
+        "orders": { "href": "orders/" }
       },
       "_embedded": {
         "tables": []
