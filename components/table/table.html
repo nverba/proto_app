@@ -1,5 +1,12 @@
-<ul>
-  <li ng-repeat="order in orders"></li>
-</ul>
+<div ng-repeat="order in table.orders">
+  <h3>ORDER {{ $index + 1 }}</h3>
 
-<a ng-link="order({ table: table.id, order: new })" class="btn btn-primary btn-block">Create Order</a>
+  <div class="btn-group btn-group-justified" role="group">
+    <a ng-link="order({ table: table.id, order: order.props.id })" class="btn btn-warning">EDIT</a>
+    <a ng-link="order({ table: table.id, order: order.props.id })" class="btn btn-danger">PAY</a>
+  </div>
+</div>
+
+<br><br>
+
+<a ng-link="order({ table: table.id, order: new })" class="btn btn-primary btn-block">Add Order</a>
