@@ -42,7 +42,6 @@
       });
 
       // Embed order ref in tables (root)
-
       HAL_JSON.root._embedded.tables[ data.table -1 ]._embedded.orders.push(ref);
 
       // Insert full order + embedded resources in orders
@@ -54,11 +53,11 @@
     });
 
     // resolve template requests normally.
-
     $httpBackend.whenGET(/components/).passThrough();
 
   }
 
+  // generates a new HAL JSON object with the specified number of tables
   function newHALJSON(number_of_tables) {
 
     var HALJSON = {};
