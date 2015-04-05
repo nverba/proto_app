@@ -9,6 +9,8 @@
 
     Hyperagent.configure('defer', $q.defer);
 
+    Hyperagent.configure('_', _);
+
     // Wrap $http in an adapter Fn for Hyperagent compatability
     // making service mockable/testable
 
