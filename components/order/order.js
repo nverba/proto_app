@@ -16,7 +16,6 @@
         this.products = _.groupBy(products, function(product) {
           return product.category;
         });
-
       });
 
       var allocateOrder = angular.bind(this, function (root) {
@@ -27,7 +26,7 @@
       });
 
       this.addItem = function addItem(product) {
-        this.order.push(product);
+        this.order.push(product.id);
         incrementProduct(product.id);
       };
 
@@ -55,7 +54,7 @@
         this.product_count[product_id] = this.product_count[product_id] ? this.product_count[product_id] - 1 : 0;
       });
 
-      ApiService.ready.then(fetchProducts).then(allocateOrder);
+      ApiService.load().then(fetchProducts).then(allocateOrder);
 
     }
 })();

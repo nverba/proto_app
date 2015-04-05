@@ -4,6 +4,11 @@
     orders: {
       "_links": {
         "self": { "href": "/api/orders" }
+      },
+      "_embedded": {
+        "orders": [
+
+        ]
       }
     } 
   };
@@ -13,18 +18,18 @@
 
   function mockBackendFn($httpBackend) {
 
-    $httpBackend.when('GET', '/api')
-      .respond(JSON.stringify(HAL_JSON.root));
+    $httpBackend.when('GET', '/api/')
+      .respond(function () {
+        return [200, JSON.stringify(HAL_JSON.root)];
+      });
 
     $httpBackend.when('GET', '/api/products')
       .respond(JSON.stringify(HAL_JSON.products));
 
-    $httpBackend.whenPOST('/orders').respond(function(method, url, json_data) {
+    $httpBackend.whenPOST('/api/orders').respond(function(method, url, json_data) {
       
       var data = JSON.parse(json_data);
       var stamp = new Date().getTime();  // lets use this for time & pseudo ID for dev
-
-
 
       var ref =  {
 
@@ -37,17 +42,21 @@
 
       var order = angular.extend(ref, {
         "_embedded": {
-          "products": data.order.map(function (product) {
-            
+          "products": data.order.map(function (product_id) {
+
+            _.find(HAL_JSON.products._embedded.products, function(prod) {
+              return prod.id === product_id;
+            });
           })
         }
       });
 
       // Embed order ref in tables (root)
+
       HAL_JSON.root._embedded.tables[ data.table -1 ]._embedded.orders.push(ref);
 
       // Insert full order + embedded resources in orders
-      HAL_JSON.orders[stamp] = order;
+      HAL_JSON.orders._embedded.orders.push(order);
 
       return [200];
     });

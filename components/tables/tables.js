@@ -11,7 +11,7 @@
         });
       });
 
-      ApiService.ready.then(allocateTables);
+      ApiService.load().then(allocateTables);
 
     }
 })();
