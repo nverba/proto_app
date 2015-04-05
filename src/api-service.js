@@ -9,6 +9,9 @@
 
     Hyperagent.configure('defer', $q.defer);
 
+
+    // use lodash
+
     Hyperagent.configure('_', _);
 
     // Wrap $http in an adapter Fn for Hyperagent compatability
