@@ -94,90 +94,91 @@
     "_links": {
       "self": { "href": "/api/products/" }
     },
-    "_embedded": [
-
-      {
-        "_links": {
-          "self": { "href": "/api/products/111" }
+    "_embedded": {
+      "products": [
+        {
+          "_links": {
+            "self": { "href": "/api/products/111" }
+          },
+          "name": "Pate",
+          "id": "111",
+          "category": "Starters",
+          "current_price": 3.2
         },
-        "name": "Pate",
-        "id": "111",
-        "category": "Starters",
-        "current_price": 3.2
-      },
-      {
-        "_links": {
-          "self": { "href": "/api/products/112" }
+        {
+          "_links": {
+            "self": { "href": "/api/products/112" }
+          },
+          "name": "Greek salad",
+          "id": "112",
+          "category": "Starters",
+          "current_price": 2.7
         },
-        "name": "Greek salad",
-        "id": "112",
-        "category": "Starters",
-        "current_price": 2.7
-      },
-      {
-        "_links": {
-          "self": { "href": "/api/products/113" }
+        {
+          "_links": {
+            "self": { "href": "/api/products/113" }
+          },
+          "name": "Fish sticks",
+          "id": "113",
+          "category": "Starters",
+          "current_price": 3
         },
-        "name": "Fish sticks",
-        "id": "113",
-        "category": "Starters",
-        "current_price": 3
-      },
-      {
-        "_links": {
-          "self": { "href": "/api/products/121" }
+        {
+          "_links": {
+            "self": { "href": "/api/products/121" }
+          },
+          "name": "Classic burger",
+          "id": "121",
+          "category": "Mains",
+          "current_price": 3.2
         },
-        "name": "Classic burger",
-        "id": "121",
-        "category": "Mains",
-        "current_price": 3.2
-      },
-      {
-        "_links": {
-          "self": { "href": "/api/products/122" }
+        {
+          "_links": {
+            "self": { "href": "/api/products/122" }
+          },
+          "name": "steak",
+          "id": "122",
+          "category": "Mains",
+          "current_price": 2.7
         },
-        "name": "steak",
-        "id": "122",
-        "category": "Mains",
-        "current_price": 2.7
-      },
-      {
-        "_links": {
-          "self": { "href": "/api/products/123" }
+        {
+          "_links": {
+            "self": { "href": "/api/products/123" }
+          },
+          "name": "Mackrel",
+          "id": "123",
+          "category": "Mains",
+          "current_price": 3
         },
-        "name": "Mackrel",
-        "id": "123",
-        "category": "Mains",
-        "current_price": 3
-      },
-      {
-        "_links": {
-          "self": { "href": "/api/products/131" }
+        {
+          "_links": {
+            "self": { "href": "/api/products/131" }
+          },
+          "name": "Posset",
+          "id": "131",
+          "category": "Deserts",
+          "current_price": 3.2
         },
-        "name": "Posset",
-        "id": "131",
-        "category": "Deserts",
-        "current_price": 3.2
-      },
-      {
-        "_links": {
-          "self": { "href": "/api/products/132" }
+        {
+          "_links": {
+            "self": { "href": "/api/products/132" }
+          },
+          "name": "Cheesecake",
+          "id": "132",
+          "category": "Deserts",
+          "current_price": 2.7
         },
-        "name": "Cheesecake",
-        "id": "132",
-        "category": "Deserts",
-        "current_price": 2.7
-      },
-      {
-        "_links": {
-          "self": { "href": "/api/products/133" }
-        },
-        "name": "Chocolate cake",
-        "id": "133",
-        "category": "Deserts",
-        "current_price": 3
-      }
-    ]
+        {
+          "_links": {
+            "self": { "href": "/api/products/133" }
+          },
+          "name": "Chocolate cake",
+          "id": "133",
+          "category": "Deserts",
+          "current_price": 3
+        }
+      ]
+    }
   };
 
 })();

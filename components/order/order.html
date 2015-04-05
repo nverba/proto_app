@@ -1,15 +1,15 @@
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="category in order.products">
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="(category, products) in order.products">
   <div class="panel panel-default" >
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
-        <button class="btn btn-default btn-block collapsed" type="button" data-toggle="collapse" data-target="#{{ category.name }}" aria-expanded="false" aria-controls="collapseExample" ng-bind="category.name">
+        <button class="btn btn-default btn-block collapsed" type="button" data-toggle="collapse" data-target="#{{ category }}" aria-expanded="false" aria-controls="collapseExample" ng-bind="category">
         </button>
       </h4>
     </div>
-    <div id="{{ category.name }}" class="panel-collapse collapse products" role="tabpanel" aria-labelledby="headingOne">
+    <div id="{{ category }}" class="panel-collapse collapse products" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
         <ul class="list-group">
-          <li class="list-group-item clearfix" ng-repeat="product in category.products">
+          <li class="list-group-item clearfix" ng-repeat="product in products">
             <span ng-bind="product.name" class="products-text pull-left"></span>
             <span class="badge pull-left" ng-bind="order.product_count[ product.id ]"></span>
             <div class="btn-group pull-right" role="group">

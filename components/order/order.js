@@ -7,12 +7,16 @@
 
       this.product_count = {}; 
 
-      var allocateProducts = angular.bind(this, function (products) {
-        this.products = products.embedded.categories.map(function (category) {
-          return angular.extend(category.props, { products: category.embedded.products.map(function (product) {
-            return product.props;
-          })});
+      var allocateProducts = angular.bind(this, function (resource) {
+
+        var products = resource.embedded.products.map(function (product) {
+          return product.props;
         });
+
+        this.products = _.groupBy(products, function(product) {
+          return product.category;
+        });
+
       });
 
       var allocateOrder = angular.bind(this, function (root) {
