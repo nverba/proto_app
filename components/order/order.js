@@ -34,8 +34,8 @@
         decrementProduct(item_id);
       };
 
-      this.updateOrder = function updateOrder() {
-        // body...
+      this.submitOrder = function updateOrder() {
+        ApiService.submitOrder(this.order, $routeParams.table, $routeParams.order);
       };
 
       function fetchProducts(root) {

@@ -1,6 +1,12 @@
 (function () { 'use strict';
 
-  var HAL_JSON = {};
+  var HAL_JSON = {
+    orders: {
+      "_links": {
+        "self": { "href": "/api/orders" }
+      }
+    } 
+  };
 
   angular.module('MockBackend', ['ngMockE2E'])
     .run(['$httpBackend', mockBackendFn]);
@@ -12,6 +18,39 @@
 
     $httpBackend.when('GET', '/api/products')
       .respond(JSON.stringify(HAL_JSON.products));
+
+    $httpBackend.whenPOST('/orders').respond(function(method, url, json_data) {
+      
+      var data = JSON.parse(json_data);
+      var stamp = new Date().getTime();  // lets use this for time & pseudo ID for dev
+
+
+
+      var ref =  {
+
+        "_links": {
+          "self": { "href": "api/orders/" + stamp }
+        },
+        created_at: stamp,
+        id: stamp
+      };
+
+      var order = angular.extend(ref, {
+        "_embedded": {
+          "products": data.order.map(function (product) {
+            
+          })
+        }
+      });
+
+      // Embed order ref in tables (root)
+      HAL_JSON.root._embedded.tables[ data.table -1 ]._embedded.orders.push(ref);
+
+      // Insert full order + embedded resources in orders
+      HAL_JSON.orders[stamp] = order;
+
+      return [200];
+    });
 
     // resolve template requests normally.
 
