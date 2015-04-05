@@ -26,9 +26,9 @@
         });
       });
 
-      this.addItem = function addItem(item_id, data) {
-        this.order.push({ id: item_id, data: data });
-        incrementProduct(item_id);
+      this.addItem = function addItem(product) {
+        this.order.push(product);
+        incrementProduct(product.id);
       };
 
       this.removeItem = function removeItem(item_id) {
