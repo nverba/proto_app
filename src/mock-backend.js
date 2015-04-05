@@ -16,6 +16,9 @@
     $httpBackend.when('GET', '/api/products/')
       .respond(JSON.stringify(HAL_JSON.products));
 
+    $httpBackend.when('GET', '/api/orders/')
+      .respond(JSON.stringify(HAL_JSON.orders));
+
     $httpBackend.whenPOST('/api/orders/').respond(function(method, url, json_data) {
       
       var data = JSON.parse(json_data);
@@ -77,7 +80,7 @@
     HALJSON.orders = {
 
       "_links": {
-        "self": { "href": "/api/orders" }
+        "self": { "href": "/api/orders/" }
       },
       "_embedded": {
         "orders": [
