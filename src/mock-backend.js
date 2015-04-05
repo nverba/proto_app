@@ -34,17 +34,23 @@
           "self": { "href": "api/orders/" + stamp }
         },
         created_at: stamp,
-        id: stamp
+        id: stamp,
+        actual_price: 0
       };
+
+      var products = data.order.map(function (product_id) {
+        return _.find(HAL_JSON.products._embedded.products, function(prod) {
+          return prod.id === product_id;
+        });
+      });
+
+      angular.forEach(products, function (prod) {
+        ref.actual_price += prod.current_price;
+      });
 
       var order = angular.extend(ref, {
         "_embedded": {
-          "products": data.order.map(function (product_id) {
-
-            _.find(HAL_JSON.products._embedded.products, function(prod) {
-              return prod.id === product_id;
-            });
-          })
+          "products": products
         }
       });
 
