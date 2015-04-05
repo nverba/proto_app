@@ -45,6 +45,14 @@
       }
     };
 
+    var payOrder = function (order_id, table_id) {
+
+      $http.post('/api/paid_orders/', { order_id: order_id, table_id: table_id })
+        .success(function() {
+          $router.navigate('/');
+        });
+    };
+
     function fetchOrder(id) {
 
       // to-do: fetch order by id with populated embedded products
@@ -61,6 +69,7 @@
     return {
       load: load,
       submitOrder: submitOrder,
+      payOrder: payOrder,
       fetchOrder: fetchOrder
     };
 

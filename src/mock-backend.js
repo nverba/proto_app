@@ -19,7 +19,7 @@
     $httpBackend.when('GET', '/api/orders/')
       .respond(JSON.stringify(HAL_JSON.orders));
 
-    $httpBackend.whenPOST('/api/orders/').respond(function(method, url, json_data) {
+    $httpBackend.when('POST', '/api/orders/').respond(function(method, url, json_data) {
       
       var data = JSON.parse(json_data);
       var stamp = new Date().getTime();  // lets use this for time & pseudo ID for dev
@@ -55,6 +55,28 @@
       return [200];
     });
 
+    $httpBackend.when('POST', '/api/paid_orders/').respond(function(method, url, json_data) {
+
+     var data = JSON.parse(json_data);
+
+      // clear embedded reference to order from table
+
+      HAL_JSON.root._embedded.tables[data.table_id - 1]._embedded.orders.splice(_.findIndex(HAL_JSON.orders._embedded.orders, function function_name (order) {
+        return data.order_id == order.id;
+      }), 1);
+
+      // remove order from prders and transfer to paid_orders
+
+      HAL_JSON.paid_orders._embedded.orders.push(HAL_JSON.orders._embedded.orders.splice(_.findIndex(HAL_JSON.orders._embedded.orders, function function_name (order) {
+        return data.order_id == order.id;
+      }), 1));
+
+      localStorage.setItem('HAL_JSON', JSON.stringify(HAL_JSON));
+
+     return [200];
+
+    });
+
     // resolve template requests normally.
     $httpBackend.whenGET(/components/).passThrough();
 
@@ -81,6 +103,18 @@
 
       "_links": {
         "self": { "href": "/api/orders/" }
+      },
+      "_embedded": {
+        "orders": [
+
+        ]
+      }
+    };
+
+    HALJSON.paid_orders = {
+
+      "_links": {
+        "self": { "href": "/api/paid_orders/" }
       },
       "_embedded": {
         "orders": [

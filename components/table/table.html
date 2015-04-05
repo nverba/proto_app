@@ -3,7 +3,7 @@
 
   <div class="btn-group btn-group-justified" role="group">
     <!-- <a ng-link="order({ table: table.id, order: order.props.id })" class="btn btn-warning">EDIT</a> -->
-    <a ng-link="order({ table: table.id, order: order.props.id })" class="btn btn-danger">PAY</a>
+    <a ng-click="table.payOrder(order.props.id, table.id)" class="btn btn-danger">PAY</a>
   </div>
 </div>
 

@@ -5,6 +5,10 @@
 
     function TableControllerFn(ApiService, $routeParams) {
 
+      this.payOrder = function (id, table_id) {
+        ApiService.payOrder(id, table_id);
+      };
+
       var allocateTable = angular.bind(this, function (root) {
         this.table = root.embedded.tables[$routeParams.id -1];
         this.id = this.table.props.id;
