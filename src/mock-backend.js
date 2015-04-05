@@ -94,112 +94,90 @@
     "_links": {
       "self": { "href": "/api/products/" }
     },
-    "_embedded": {
-      "categories": [
-        {
-          "_links": {
-            "self": { "href": "/api/products/categories/starters" }
-          },
-          "name": "Starters",
-          "_embedded": {
-            "products": [
-              {
-                "_links": {
-                  "self": { "href": "/api/products/categories/starters/pate" }
-                },
-                "id": "111",
-                "name": "Pate",
-                "current_price": 3.2
-              },
-              {
-                "_links": {
-                  "self": { "href": "/api/products/categories/starters/greek_salad" }
-                },
-                "id": "112",
-                "name": "Greek salad",
-                "current_price": 2.7
-              },
-              {
-                "_links": {
-                  "self": { "href": "/api/products/categories/starters/fish_sticks" }
-                },
-                "id": "113",
-                "name": "Fish sticks",
-                "current_price": 3
-              }
-            ]
-          }
+    "_embedded": [
+
+      {
+        "_links": {
+          "self": { "href": "/api/products/111" }
         },
-        {
-          "_links": {
-            "self": { "href": "/api/products/categories/mains" }
-          },
-          "name": "Mains",
-          "_embedded": {
-            "products": [
-            {
-              "_links": {
-                "self": { "href": "/api/products/categories/mains/classic_burger" }
-              },
-              "id": "121",
-              "name": "Classic burger",
-              "current_price": 3.2
-            },
-            {
-              "_links": {
-                "self": { "href": "/api/products/categories/mains/steak" }
-              },
-              "id": "122",
-              "name": "steak",
-              "current_price": 2.7
-            },
-            {
-              "_links": {
-                "self": { "href": "/api/products/categories/mains/mackrel" }
-              },
-              "id": "123",
-              "name": "Mackrel",
-              "current_price": 3
-            }
-          ]
-          }
+        "name": "Pate",
+        "id": "111",
+        "category": "Starters",
+        "current_price": 3.2
+      },
+      {
+        "_links": {
+          "self": { "href": "/api/products/112" }
         },
-        {
-          "_links": {
-            "self": { "href": "/api/products/categories/deserts" }            
-          },
-          "name": "Deserts",
-          "_embedded": {
-            "products": [
-              {
-                "_links": {
-                  "self": { "href": "/api/products/categories/deserts/posset" }
-                },
-                "id": "131",
-                "name": "Posset",
-                "current_price": 3.2
-              },
-              {
-                "_links": {
-                  "self": { "href": "/api/products/categories/deserts/cheesecake" }
-                },
-                "id": "132",
-                "name": "Cheesecake",
-                "current_price": 2.7
-              },
-              {
-                "_links": {
-                  "self": { "href": "/api/products/categories/deserts/chocolate_cake" }
-                },
-                "id": "133",
-                "name": "Chocolate cake",
-                "current_price": 3
-              }
-            ]
-          }
-        }
-      ]
-    }
+        "name": "Greek salad",
+        "id": "112",
+        "category": "Starters",
+        "current_price": 2.7
+      },
+      {
+        "_links": {
+          "self": { "href": "/api/products/113" }
+        },
+        "name": "Fish sticks",
+        "id": "113",
+        "category": "Starters",
+        "current_price": 3
+      },
+      {
+        "_links": {
+          "self": { "href": "/api/products/121" }
+        },
+        "name": "Classic burger",
+        "id": "121",
+        "category": "Mains",
+        "current_price": 3.2
+      },
+      {
+        "_links": {
+          "self": { "href": "/api/products/122" }
+        },
+        "name": "steak",
+        "id": "122",
+        "category": "Mains",
+        "current_price": 2.7
+      },
+      {
+        "_links": {
+          "self": { "href": "/api/products/123" }
+        },
+        "name": "Mackrel",
+        "id": "123",
+        "category": "Mains",
+        "current_price": 3
+      },
+      {
+        "_links": {
+          "self": { "href": "/api/products/131" }
+        },
+        "name": "Posset",
+        "id": "131",
+        "category": "Deserts",
+        "current_price": 3.2
+      },
+      {
+        "_links": {
+          "self": { "href": "/api/products/132" }
+        },
+        "name": "Cheesecake",
+        "id": "132",
+        "category": "Deserts",
+        "current_price": 2.7
+      },
+      {
+        "_links": {
+          "self": { "href": "/api/products/133" }
+        },
+        "name": "Chocolate cake",
+        "id": "133",
+        "category": "Deserts",
+        "current_price": 3
+      }
+    ]
   };
 
 })();
