@@ -1,5 +1,9 @@
 (function () { 'use strict';
 
+  window.DumpHalData = function () {
+    console.log(HAL_JSON);
+  };
+
   // specify number of tables to generate when calling newHALJSON()
   var HAL_JSON = localStorage.getItem('HAL_JSON') ? JSON.parse(localStorage.getItem('HAL_JSON')) :  newHALJSON(34);
 
