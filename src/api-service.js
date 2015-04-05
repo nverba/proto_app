@@ -9,7 +9,6 @@
 
     Hyperagent.configure('defer', $q.defer);
 
-
     // use lodash
 
     Hyperagent.configure('_', _);
@@ -47,14 +46,16 @@
     };
 
     function fetchOrder(id) {
-      return load().then(function (root) {
 
-          console.log(root.links);
+      // to-do: fetch order by id with populated embedded products
 
-        return root.links.orders.fetch().then(function (orders) {
-          console.log(orders);
-        });
-      });
+      // return load().then(function (root) {
+      //   return root.links.orders.fetch({force: true}).then(function (orders) {
+      //     return _.find(orders.embedded.orders, function(order) {
+      //       return id == order.props.id;
+      //     });
+      //   });
+      // });
     }
 
     return {

@@ -18,18 +18,21 @@
         });
       });
 
-      var allocateOrder = angular.bind(this, function (root) {
+      var allocateOrder = angular.bind(this, function (order) {
 
-        if ($routeParams.order === 'undefined') {
-          this.order = [];
-        } else {
-          //this.order = ApiService.fetchOrder($routeParams.order);
-        }
+        // to-do : return fetched order for editing
 
+        // this.order = order;
         // angular.forEach(this.order, function (product) {
         //   incrementProduct(product.id);
         // });
       });
+
+      if ($routeParams.order === 'undefined') {
+        this.order = [];
+      } else {
+        ApiService.fetchOrder($routeParams.order).then(allocateOrder);
+      }
 
       this.addItem = function addItem(product) {
         this.order.push(product.id);
@@ -60,7 +63,7 @@
         this.product_count[product_id] = this.product_count[product_id] ? this.product_count[product_id] - 1 : 0;
       });
 
-      ApiService.load().then(fetchProducts).then(allocateOrder);
+      ApiService.load().then(fetchProducts);
 
     }
 })();
