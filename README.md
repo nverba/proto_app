@@ -49,8 +49,8 @@ HTTP | URL | Params| Response
 --- | --- | --- | ---
 __GET__ | `/api/` || Returns root which is also the TABLES resource.
 __GET__ | `/api/products/` || Returns products resource
-__GET__ | `/api/table_orders/` | `filter=[paid\|unpaid]`, `id_only=bool` | Returns table_orders resource, filterable by paid/unpaid or optionally id's only.
-__GET__ | `/api/table_orders/:table_id` | `filter=[paid\|unpaid]` | Return orders of specified table id, filterable by paid unpaid 
+__GET__ | `/api/table_orders/` | `filter=[paid|unpaid]`, `id_only=bool` | Returns table_orders resource, filterable by paid/unpaid or optionally id's only.
+__GET__ | `/api/table_orders/:table_id` | `filter=[paid|unpaid]` | Return orders of specified table id, filterable by paid unpaid 
 __POST__ | `/api/table_orders/` | `table_id=INT`:required, `order=Array`:required | Creates a new table order with the required table_id & array of product IDs
 __POST__ | `/api/paid_orders/` | `table_order_id`:required, `final_ammount`:required  | Creates a new entry in the paid orders resource
 
