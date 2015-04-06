@@ -1,8 +1,8 @@
 # Prototype menu-app
 
-The backend is simulated with angular $httpBackend which can be removed by taking out the 'MockBackend' dependency from app.js.
+The backend is mocked with angular `$httpBackend` which can be removed by taking out the `MockBackend` dependency from app.js.
 
-The prototype uses the AngularJS component style and the new, AngularJS 2.0.0 compatable [angular-new-router](http://angular.github.io/router/getting-started). Whilst this is still early in development, it makes sense to start to adopt the newer component style, avoiding complete rewrites when angular 1.4.0/2.0.0 become standard.
+The prototype uses the AngularJS component style and the new, AngularJS 2.0.0 compatable [angular-new-router](http://angular.github.io/router/getting-started). Whilst this is still early in development, it makes sense to start to adopt the newer component style, avoiding complete rewrites when angular 1.4.0/2.0.0 become standard. The main HAL client id [Hyperagent](https://weluse.github.io/hyperagent/).
 
 The `mock-backend` syncs data to localStorage for convenience whilst developing. If in doubt, clear the data with `localStorage.clear()`. There is also an option to `DumpHalData()`, that logs the complete, namespaced HAL JSON object to the console for inspection.
 
