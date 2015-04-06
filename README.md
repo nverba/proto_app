@@ -1,6 +1,6 @@
 # Prototype menu-app
 
-### Bower Installation - Install `"jquery": "~2.1.3"`, should work.
+##### Bower Installation - Install `"jquery": "~2.1.3"`, should work.
 
 The backend is mocked with angular `$httpBackend` which can be removed by taking out the `MockBackend` dependency from app.js.
 
