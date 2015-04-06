@@ -1,8 +1,8 @@
 <div ng-repeat="order in table.orders" class="order-display">
-  <h3 class="order">ORDER {{ $index + 1 }}<span class="price">{{ order.props.actual_price | currency: "£": 2 }}</span></h3>
+  <h3 class="order">ORDER {{ $index + 1 }}<span class="price">{{ order.actual_price | currency: "£": 2 }}</span></h3>
   <div class="btn-group btn-group-justified" role="group">
     <!-- <a ng-link="order({ table: table.id, order: order.props.id })" class="btn btn-warning">EDIT</a> -->
-    <a ng-click="table.payOrder(order.props.id, table.id)" class="btn btn-danger">PAY</a>
+    <a ng-click="table.payOrder(order.id, table.id)" class="btn btn-danger">PAY</a>
   </div>
 </div>
 
