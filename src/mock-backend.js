@@ -32,10 +32,11 @@
         var orders = _.cloneDeep(HAL_JSON.table_orders);
 
         orders._embedded.table_orders = _.filter(orders._embedded.table_orders, function(order) {
-          console.log(!_.includes(HAL_JSON.table_orders, order.id));
-          return !_.includes(HAL_JSON.table_orders._embedded.table_orders, order.id);
+          return !_.find(HAL_JSON.paid_orders._embedded.paid_orders, function(paid_order) {
+            return paid_order.table_order_id === order.id;
+          });
         });
-
+        
         return [200, JSON.stringify(orders)];
       });
 
@@ -87,18 +88,9 @@
 
      var data = JSON.parse(json_data);
 
-      // clear embedded reference to order from table
+      // add order to paid_orders
 
-      HAL_JSON.root._embedded.tables[data.table_id - 1]._embedded.orders.splice(_.findIndex(HAL_JSON.orders._embedded.orders, function function_name (order) {
-        return data.order_id == order.id;
-      }), 1);
-
-      // remove order from prders and transfer to paid_orders
-
-      HAL_JSON.paid_orders._embedded.orders.push(HAL_JSON.orders._embedded.orders.splice(_.findIndex(HAL_JSON.orders._embedded.orders, function function_name (order) {
-        return data.order_id == order.id;
-      }), 1));
-
+      HAL_JSON.paid_orders._embedded.paid_orders.push(angular.extend(data, { time_paid: new Date().getTime(), is_paid: true }));
       localStorage.setItem('HAL_JSON', JSON.stringify(HAL_JSON));
 
      return [200];

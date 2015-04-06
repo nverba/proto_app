@@ -2,10 +2,10 @@
   <h3 class="order">ORDER {{ $index + 1 }}<span class="price">{{ order.actual_price | currency: "£": 2 }}</span></h3>
   <div class="btn-group btn-group-justified" role="group">
     <!-- <a ng-link="order({ table: table.id, order: order.props.id })" class="btn btn-warning">EDIT</a> -->
-    <a ng-click="table.payOrder(order.id, table.id)" class="btn btn-danger">PAY</a>
+    <a ng-click="table.payOrder(order.id, order.actual_price)" class="btn btn-danger">PAY</a>
   </div>
 </div>
 
 <br><br>
 
-<a ng-link="order({ table: table.id, order: new })" class="btn btn-primary btn-block">Add Order</a>
+<a ng-link="order({ table: table.id })" class="btn btn-primary btn-block">Add Order</a>

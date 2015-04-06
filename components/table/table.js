@@ -5,8 +5,8 @@
 
     function TableControllerFn(ApiService, $routeParams) {
 
-      this.payOrder = function (id, table_id) {
-        ApiService.payOrder(id, table_id);
+      this.payOrder = function (id, final_ammount) {
+        ApiService.payOrder(id, final_ammount);
       };
 
       var allocateTable = angular.bind(this, function (root) {

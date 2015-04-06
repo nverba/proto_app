@@ -45,9 +45,9 @@
       }
     };
 
-    var payOrder = function (order_id, table_id) {
+    var payOrder = function (order_id, final_ammount) {
 
-      $http.post('/api/paid_orders/', { order_id: order_id, table_id: table_id })
+      $http.post('/api/paid_orders/', { table_order_id: order_id, final_ammount: final_ammount })
         .success(function() {
           $router.navigate('/');
         });
