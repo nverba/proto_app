@@ -12,16 +12,24 @@
 
   function mockBackendFn($httpBackend) {
 
+    // GET TABLES
+
     $httpBackend.when('GET', '/api/')
       .respond(function () {
         return [200, JSON.stringify(HAL_JSON.root)];
       });
 
+    // GET PRODUCTS
+
     $httpBackend.when('GET', '/api/products/')
       .respond(JSON.stringify(HAL_JSON.products));
 
+    // GET ORDERS
+
     $httpBackend.when('GET', '/api/orders/')
       .respond(JSON.stringify(HAL_JSON.orders));
+
+    // POST ORDER
 
     $httpBackend.when('POST', '/api/orders/').respond(function(method, url, json_data) {
       
@@ -64,6 +72,8 @@
 
       return [200];
     });
+
+    // POST PAID ORDER
 
     $httpBackend.when('POST', '/api/paid_orders/').respond(function(method, url, json_data) {
 
