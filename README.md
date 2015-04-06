@@ -1,5 +1,7 @@
 # Prototype menu-app
 
+### Bower Installation - Install `"jquery": "~2.1.3"`, should work.
+
 The backend is mocked with angular `$httpBackend` which can be removed by taking out the `MockBackend` dependency from app.js.
 
 The prototype uses the AngularJS component style and the new, AngularJS 2.0.0 compatable [angular-new-router](http://angular.github.io/router/getting-started). Whilst this is still early in development, it makes sense to start to adopt the newer component style, avoiding complete rewrites when angular 1.4.0/2.0.0 become standard. The main HAL client id [Hyperagent](https://weluse.github.io/hyperagent/).
