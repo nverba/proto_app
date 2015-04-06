@@ -55,7 +55,7 @@
         created_at: stamp,
         id: stamp,
         actual_price: 0,
-        table_id: data.table
+        table_id: data.table_id
       };
 
       var products = data.order.map(function (product_id) {

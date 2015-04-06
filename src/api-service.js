@@ -36,7 +36,7 @@
 
     var submitOrder = function (order, table_id, order_id) {
       if (order_id === "undefined") {
-        $http.post('/api/table_orders/', { table: table_id, order: order })
+        $http.post('/api/table_orders/', { table_id: table_id, order: order })
           .success(function() {
             $router.navigate('/');
           });
