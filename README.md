@@ -4,6 +4,7 @@
 
 __If pushing to a .git endpoint like gh-pages or Heroku, as well as removing `bower_components` from the root .gitignore, you must also remove `dist` from the `angular-new-router` .gitignore.__
 
+###### Or just use the live [DEMO](http://nverba.github.io/proto_app)
 
 The backend is mocked with angular `$httpBackend` which can be removed by taking out the `MockBackend` dependency from app.js.
 
