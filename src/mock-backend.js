@@ -112,10 +112,11 @@
       "_links": {
         "self": { "href": "/api/" },
         "products": { "href": "products/" },
-        "orders": { "href": "orders/" }
-      },
-      "_embedded": {
-        "tables": []
+        "orders": { "href": "orders/" },
+        "paid_orders": { "href": "paid_orders/" },
+        "_embedded": {
+          "tables": []
+        }
       }
     };
       
@@ -125,9 +126,7 @@
         "self": { "href": "/api/orders/" }
       },
       "_embedded": {
-        "orders": [
-
-        ]
+        "orders": []
       }
     };
 
@@ -137,9 +136,7 @@
         "self": { "href": "/api/paid_orders/" }
       },
       "_embedded": {
-        "orders": [
-
-        ]
+        "paid_orders": []
       }
     };
 
@@ -243,11 +240,7 @@
           "_links": {
             "self": { "href": "api/tables/" + i }
           },
-          "id": i,
-          "reserved": [],
-          "_embedded": {
-            "orders": []
-          }
+          "id": i
         });
       }
     }
