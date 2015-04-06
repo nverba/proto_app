@@ -1,6 +1,9 @@
 # Prototype menu-app
 
-##### Bower Installation - Install `"jquery": "~2.1.3"`, should work.
+##### Bower Installation - Install `"jquery": "~2.1.3"`, should work fine.
+
+__If pushing to a .git endpoint like gh-pages or Heroku, as well as removing `bower_components` from the root .gitignore, you must also remove `dist` from the `angular-new-router` .gitignore.__
+
 
 The backend is mocked with angular `$httpBackend` which can be removed by taking out the `MockBackend` dependency from app.js.
 
