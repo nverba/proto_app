@@ -47,3 +47,9 @@ __GET__ | `/api/table_orders/:id` | TABLE ORDER
 __GET__ | `/api/paid_orders/` | PAID ORDERS ALL
 __POST__ | `/api/table_orders/{ products: [] }` | CREATE TABLE ORDER
 __POST__ | `/api/paid_orders/{ id: int, amount: int }` | CREATE PAID ORDER
+
+
+
+TO-DO: 
+
+add note about removing mock an dpossibly HAL library addapter 

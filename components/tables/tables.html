@@ -1,5 +1,5 @@
 <ul id="table-grid">
-  <li ng-repeat="table in tables.tables" ng-class="{ ordered: table.orders.length }">
+  <li ng-repeat="table in tables.tables" ng-class="{ ordered: tables.active[table.id] }">
     <a ng-link="table({ id: table.id })">
       <span ng-bind="table.id"></span>
     </a>

@@ -26,12 +26,22 @@
 
     // GET ORDERS
 
-    $httpBackend.when('GET', '/api/orders/')
-      .respond(JSON.stringify(HAL_JSON.orders));
+    $httpBackend.when('GET', '/api/table_orders/')
+      .respond(function () {
+
+        var orders = _.cloneDeep(HAL_JSON.table_orders);
+
+        orders._embedded.table_orders = _.filter(orders._embedded.table_orders, function(order) {
+          console.log(!_.includes(HAL_JSON.table_orders, order.id));
+          return !_.includes(HAL_JSON.table_orders._embedded.table_orders, order.id);
+        });
+
+        return [200, JSON.stringify(orders)];
+      });
 
     // POST ORDER
 
-    $httpBackend.when('POST', '/api/orders/').respond(function(method, url, json_data) {
+    $httpBackend.when('POST', '/api/table_orders/').respond(function(method, url, json_data) {
       
       var data = JSON.parse(json_data);
       var stamp = new Date().getTime();  // lets use this for time & pseudo ID for dev
@@ -39,11 +49,12 @@
       var ref =  {
 
         "_links": {
-          "self": { "href": "api/orders/" + stamp }
+          "self": { "href": "api/table_orders/" + stamp }
         },
         created_at: stamp,
         id: stamp,
-        actual_price: 0
+        actual_price: 0,
+        table_id: data.table
       };
 
       var products = data.order.map(function (product_id) {
@@ -62,11 +73,8 @@
         }
       });
 
-      // Embed order ref in tables (root)
-      HAL_JSON.root._embedded.tables[ data.table -1 ]._embedded.orders.push(ref);
-
       // Insert full order + embedded resources in orders
-      HAL_JSON.orders._embedded.orders.push(order);
+      HAL_JSON.table_orders._embedded.table_orders.push(order);
 
       localStorage.setItem('HAL_JSON', JSON.stringify(HAL_JSON));
 
@@ -107,26 +115,28 @@
 
     var HALJSON = {};
 
+    // TABLES
+
     HALJSON.root = {
 
       "_links": {
         "self": { "href": "/api/" },
         "products": { "href": "products/" },
-        "orders": { "href": "orders/" },
-        "paid_orders": { "href": "paid_orders/" },
-        "_embedded": {
-          "tables": []
-        }
+        "table_orders": { "href": "table_orders/" },
+        "paid_orders": { "href": "paid_orders/" }
+      },
+      "_embedded": {
+        "tables": []
       }
     };
       
-    HALJSON.orders = {
+    HALJSON.table_orders = {
 
       "_links": {
-        "self": { "href": "/api/orders/" }
+        "self": { "href": "/api/table_orders/" }
       },
       "_embedded": {
-        "orders": []
+        "table_orders": []
       }
     };
 
